@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.taotao.mapper.TbItemMapper" >
+
+  <select id="getItemById" parameterType="long" resultType="com.taotao.pojo.TbItem">
+      SELECT * from tbitem where id=#{id}
+  
+  </select>
+  
+   <select id="getTbItem"  resultType="com.taotao.pojo.TbItem" >
+      SELECT * from tbitem
+   
+   </select>
+   
+   
+   <insert id="addTbItem"  parameterType="com.taotao.pojo.TbItem">
+      insert into tbitem (id,title,sellPoint,price,num,barCode,image,cid,status,created,updated)
+                 VALUES(#{id},#{title},#{sellPoint},#{price},#{num},#{barCode},#{image},#{cid},#{status},#{created},#{updated})
+   
+   </insert>
+   
+   <insert id="addTbItemDesc"  parameterType="com.taotao.pojo.TbItemDesc">
+    
+      INSERT INTO tbitemdesc (itemId,itemDesc,created,updated) VALUES(#{itemId},#{itemDesc},#{created},#{updated})
+   </insert>
+  
+
+</mapper>
