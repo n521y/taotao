@@ -58,4 +58,34 @@ public class SearchItemServiceImpl implements SearchItemService {
              return TaotaoResult.build(500, "报错了");
 	}
 
+	@Override
+	public TaotaoResult addDocument(long itemId) {
+		// 1、根据商品id查询商品信息。
+		SearchItem searchItem = searchItemMapper.getItemById(itemId);
+		// 2、创建一SolrInputDocument对象。
+		SolrInputDocument document = new SolrInputDocument();
+		// 3、使用SolrServer对象写入索引库。
+		document.addField("id", searchItem.getId());
+		document.addField("item_title", searchItem.getTitle());
+		document.addField("item_sell_point", searchItem.getSell_point());
+		document.addField("item_price", searchItem.getPrice());
+		document.addField("item_image", searchItem.getImage());
+		document.addField("item_category_name", searchItem.getCategory_name());
+		document.addField("item_desc", searchItem.getItem_desc());
+		// 5、向索引库中添加文档。
+		try {
+			solrServer.add(document);
+			solrServer.commit();
+			return TaotaoResult.ok();
+		} catch (SolrServerException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// 4、返回成功，返回TaotaoResult。
+
+		return null;
+	}
+
 }

@@ -18,4 +18,27 @@
 		WHERE
 			a.status = 1
 	</select>
+
+	<select id="getItemById" parameterType="long" resultType="com.taotao.common.pojo.SearchItem">
+		SELECT
+			a.id,
+			a.title,
+			a.sellpoint,
+			a.price,
+			a.image,
+			b. NAME categoryname,
+			c.itemdesc
+		FROM
+			tbitem a
+		JOIN tbitemcat b ON a.cid = b.id
+		JOIN tbitemdesc c ON a.id = c.itemid
+		WHERE
+			a.status = 1
+		AND
+		    a.id=#{itemId}
+
+
+
+	</select>
+
 </mapper>

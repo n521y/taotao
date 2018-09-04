@@ -1,5 +1,6 @@
 package com.taotao.controller;
 
+import com.taotao.pojo.TbItemParamItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,8 +35,8 @@ public class ItemController {
     
     @RequestMapping("/save")
     @ResponseBody
-    public TaotaoResult getItem(TbItem item,String desc) {
-    	TaotaoResult result = itemService.addItem(item, desc);
+    public TaotaoResult getItem(TbItem item,String desc,String itemParams) {
+    	TaotaoResult result = itemService.addItem(item, desc,itemParams);
 		return result;
     }
     

@@ -15,4 +15,6 @@ public interface SearchItemMapper {
 	 */
 	List<SearchItem> getItemList();
 
+	public SearchItem getItemById(long itemId);
+
 }

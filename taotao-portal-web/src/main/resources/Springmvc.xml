@@ -16,7 +16,7 @@
 	
 	<!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:*.properties" />
-	
+
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
 
@@ -29,7 +29,7 @@
 	
 	
 	<!-- 引用dubbo服务 --> 
-	<dubbo:application name="taotao-manager-web"/>
+	<dubbo:application name="taotao-portal-web"/>
 	<dubbo:registry protocol="zookeeper" address="192.168.25.167:2181"/>	
 	
     
