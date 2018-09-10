@@ -88,7 +88,7 @@
 	</bean>
 
 	<!--配置监听器-->
-	<bean id="itemChangeListener" class="com.taotao.search.listener.ItemChangeListener" />
+	<bean id="itemChangeListener" class="com.taotao.item.listener.ItemChangeListener" />
 	<!--把监听对象交给spring来管理-->
 	<bean  class="org.springframework.jms.listener.DefaultMessageListenerContainer">
 		<property name="connectionFactory" ref="connectionFactory"/>
